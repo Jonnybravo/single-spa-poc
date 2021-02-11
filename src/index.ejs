@@ -50,7 +50,8 @@
     {
       "imports": {
         "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
-        "@POC/root-config": "//localhost:9000/POC-root-config.js"
+        "@POC/root-config": "//localhost:9000/POC-root-config.js",
+        "@POC/single-spa-poc-core": "//localhost:8081/POC-single-spa-poc-core.js"
       }
     }
   </script>
@@ -73,12 +74,19 @@
 
   <template id="single-spa-layout">
     <single-spa-router>
-      <!-- <nav>
-        <application name="@<%- orgName %>/navbar"></application>
-      </nav> -->
+      <nav>
+        <application name="@POC/single-spa-poc-core"></application>
+      </nav>
       <main>
         <route default>
+          <h1>Home</h1>
+        </route>
+        <route path="app1">
           <application name="@POC/single-spa-poc-app1"></application>
+        </route>
+        <route path="app2">
+          <!-- <application name="@POC/single-spa-poc-app2"></application> -->
+          <h2>To be done...</h2>
         </route>
       </main>
     </single-spa-router>
